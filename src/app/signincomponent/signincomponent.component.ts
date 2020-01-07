@@ -10,6 +10,8 @@ import {SigninService} from '../services/signin.service';
 })
 export class SignincomponentComponent implements OnInit {
   private user: User = new User('','');
+  private userCreateAccount: boolean = false;
+  private userWantSignIn: boolean = false;
   constructor(private siginService: SigninService) { }
 
   ngOnInit() {
@@ -19,6 +21,21 @@ export class SignincomponentComponent implements OnInit {
   checkUser() {
     let userToJson = JSON.stringify(this.user);
     console.log(userToJson);
-    this.siginService.postUserAuthentication(userToJson).subscribe( res => console.log(res));
+    this.siginService.userConnection(userToJson).subscribe( res => console.log(res));
+  }
+
+  createAccount() {
+    console.log(this.userWantSignIn);
+    let userToJson = JSON.stringify(this.user);
+    this.siginService.createUserAccount(userToJson).subscribe(res => console.log(res))
+  }
+
+  wantCreateAccount() {
+    this.userCreateAccount = true;
+  }
+
+  wantSigin() {
+    this.userCreateAccount = false;
+    this.userWantSignIn = true;
   }
 }

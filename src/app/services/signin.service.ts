@@ -7,19 +7,34 @@ import {Observable} from 'rxjs';
 })
 export class SigninService {
    readonly urlApi = 'http://localhost:8082/user/search';
-   readonly urlApiToGet = 'http://localhost:8082/user/1';
+   readonly urlApiToCreateAccount = 'http://localhost:8082/user';
 
   constructor(private http: HttpClient) { }
 
-  postUserAuthentication (user): Observable<any> {
-  let headers = new HttpHeaders({'Content-Type':'application/json'
-    });
-    return this.http.post(this.urlApi, user, {headers});
+  userConnection (user): Observable<any> {
+    let username = 'user';
+    let password = 'password';
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Basic ' + btoa(username + ':' + password)
+      })
+    };
+    return this.http.post(this.urlApi, user, header);
   }
 
-  getUserBYId() : Observable<any>{
-    return this.http.get(this.urlApiToGet);
+  createUserAccount (user): Observable<any> {
+    let username = 'user';
+    let password = 'password';
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Basic ' + btoa(username + ':' + password)
+      })
+    };
+    return this.http.post(this.urlApiToCreateAccount,user, header)
   }
+
 
 
 
