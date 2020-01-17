@@ -11,13 +11,17 @@ export class SigninService {
 
   constructor(private http: HttpClient) { }
 
-  postUserAuthentication (user): Observable<any> {
-  let headers = new HttpHeaders({'Content-Type':'application/json'
+  postUserAuthentication(user): Observable<any> {
+    let username = 'user';
+    let password = 'password';
+  let headers = new HttpHeaders({
+    'Content-Type':  'application/json',
+    Authorization: 'Basic ' + btoa(username + ':' + password)
     });
     return this.http.post(this.urlApi, user, {headers});
   }
 
-  getUserBYId() : Observable<any>{
+  getUserBYId(): Observable<any>{
     return this.http.get(this.urlApiToGet);
   }
 
