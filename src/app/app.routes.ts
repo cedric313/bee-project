@@ -7,6 +7,7 @@ import {AccueilComponent} from "./accueil/accueil.component";
 import {RucheComponent} from "./ruche/ruche.component";
 
 const ROUTES: Routes = [
+  { path: '' , redirectTo: '/accueil', pathMatch: 'full'},
   { path: 'accueil' , component: AccueilComponent},
   { path: 'signin', component: SignincomponentComponent },
   { path: 'header', component: HeadercomponentComponent },

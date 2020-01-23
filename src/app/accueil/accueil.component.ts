@@ -22,8 +22,7 @@ export class AccueilComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.idUser);
-    console.log(this.liveStock[0].postalCode);
+
   }
 
   changeStateCheptel() {

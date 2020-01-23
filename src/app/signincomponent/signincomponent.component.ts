@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from '../models/user';
 import {SigninService} from '../services/signin.service';
 
@@ -15,16 +15,18 @@ export class SignincomponentComponent implements OnInit {
   private connection: User = new User();
   private isUserConnect: boolean = false;
 
+  @Output() sendId: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor(private siginService: SigninService) { }
 
   ngOnInit() {
+
   }
 
   checkUser() {
     let userToJson = JSON.stringify(this.user);
     console.log(userToJson);
-    let bla: boolean = false;
     this.siginService.userConnection(userToJson).subscribe(
        response => {
          this.connection.email = response.user.email;
@@ -34,7 +36,7 @@ export class SignincomponentComponent implements OnInit {
          this.connection.liveStocks = response.user.liveStocks;
        },
       err => console.error('Observer got an error: ' + err),
-      () => this.isUserIsValid(),
+      () => this.toSendIdUser(),
     );
   }
 
@@ -61,8 +63,15 @@ export class SignincomponentComponent implements OnInit {
     this.userCreateAccount = true;
   }
 
-  wantSigin() {
+  wantSignIn() {
     this.userCreateAccount = false;
     this.userWantSignIn = true;
   }
+
+  public toSendIdUser(){
+    this.isUserIsValid();
+    this.sendId.emit(this.connection.id);
+    console.log(this.connection.id);
+  }
+
 }

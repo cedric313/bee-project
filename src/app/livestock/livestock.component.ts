@@ -13,7 +13,6 @@ export class LivestockComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.liveStock[0])
   }
 
 }

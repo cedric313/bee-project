@@ -1,19 +1,29 @@
-<header class="header">
-  <nav class="navbar">
-    <a class="logo" href="#">Mon cheptel</a>
-    <input type="checkbox" id="nav" class="hidden">
-    <label for="nav" class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <div class="wrapper">
-      <ul class="menu">
-        <li class="menu-item"><a href="#">Home</a></li>
-        <li> <a [routerLink]="['/signin']">Sign in</a></li>
-        <li class="menu-item"><a href="#">About</a></li>
-        <li class="menu-item"><a href="#">Prices</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Ici c'est Api!</a>
+  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+          data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a [routerLink]="['/livestock']" class="nav-link">Mon cheptel</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="changeStateCheptel()" [routerLink]="['/ruche']" class="nav-link">Mes ruches</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input aria-label="Search" class="form-control mr-sm-2" placeholder="{{idUser}}" type="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="changeStateShow()">Se connecter
+      </button>
+    </form>
+  </div>
+</nav>
+<div *ngIf="show">
+  <app-signincomponent
+    (sendId)="onGetIdUserFromSignIn($event)"
+  ></app-signincomponent>
+</div>
+
+

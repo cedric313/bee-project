@@ -6,7 +6,7 @@
       <input [(ngModel)]="user.name" id="InputUserName" type="text" placeholder="name" [ngModelOptions]="{standalone: true}" />
       <input [(ngModel)]="user.firstname" id="InputUserFirstName" type="text" placeholder="firstname" [ngModelOptions]="{standalone: true}" />
       <button (click)="createAccount()">create</button>
-      <p class="message">Already registered? <button (click)="wantSigin()">Sign In</button></p>
+      <p class="message">Already registered? <button (click)="wantSignIn()">Sign In</button></p>
     </form>
     <form *ngIf="userCreateAccount == false" class="login-form" #f="ngForm" >
       <input [(ngModel)]="user.email" id="InputUserEmail" type="text" placeholder="username" [ngModelOptions]="{standalone: true}"/>
@@ -16,11 +16,5 @@
     </form>
   </div>
 </div>
-<div *ngIf="isUserConnect">
-  <app-accueil
-    [userName]="connection.name"
-    [idUser]="connection.id"
-    [liveStock]="connection.liveStocks">
-  </app-accueil>
-</div>
+
 
