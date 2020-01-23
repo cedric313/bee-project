@@ -8,9 +8,13 @@ import { HeadercomponentComponent } from './headercomponent/headercomponent.comp
 import { FootercomponentComponent } from './footercomponent/footercomponent.component';
 import { BodycomponentComponent } from './bodycomponent/bodycomponent.component';
 import { SignincomponentComponent } from './signincomponent/signincomponent.component';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { ROUTES } from './app.routes';
 import {HttpClientModule} from '@angular/common/http';
+import { AccueilComponent } from './accueil/accueil.component';
+import { LivestockComponent } from './livestock/livestock.component';
+import { RucheComponent } from './ruche/ruche.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import {HttpClientModule} from '@angular/common/http';
     HeadercomponentComponent,
     FootercomponentComponent,
     BodycomponentComponent,
-    SignincomponentComponent
+    SignincomponentComponent,
+    AccueilComponent,
+    LivestockComponent,
+    RucheComponent
   ],
   imports: [
     BrowserModule,

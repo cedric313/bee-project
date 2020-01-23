@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
+  border-radius: 6px !important;
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
@@ -39,6 +40,7 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  border-radius: 6px;
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;

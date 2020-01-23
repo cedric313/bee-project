@@ -1,4 +1,4 @@
-<div class="login-page">
+<div *ngIf="!isUserConnect" class="login-page">
   <div class="form" >
     <form *ngIf="userCreateAccount == true"  class="register-form">
       <input [(ngModel)]="user.email" type="text" placeholder="username" [ngModelOptions]="{standalone: true}"/>
@@ -15,5 +15,12 @@
       <button class="message" (click)="wantCreateAccount()">Not registered?</button>
     </form>
   </div>
+</div>
+<div *ngIf="isUserConnect">
+  <app-accueil
+    [userName]="connection.name"
+    [idUser]="connection.id"
+    [liveStock]="connection.liveStocks">
+  </app-accueil>
 </div>
 

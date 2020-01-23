@@ -35,8 +35,11 @@ export class SigninService {
     return this.http.post(this.urlApiToCreateAccount,user, header)
   }
 
+  getHives(){
 
+  }
 
+  getUser(){
 
-
+  }
 }

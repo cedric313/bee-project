@@ -3,10 +3,11 @@ export class User {
   public password: string;
   public name: string;
   public firstname: string;
+  public id: number;
+  public liveStocks: any[];
 
 
-  constructor(email?: string, password?: string) {
+  constructor(email?: string) {
     this.email = email;
-    this.password = password;
   }
 }
