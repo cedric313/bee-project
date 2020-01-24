@@ -1,1 +1,8 @@
-<p>LIVESTOCK</p>
+<br>
+  <div *ngFor="let livestocks of liveStock" class="card text-white bg-warning mb-3" style="max-width: 18rem; margin-left: 5px">
+    <div class="card-header">{{livestocks.cityName}} {{livestocks.address}}</div>
+    <div class="card-body">
+      <p class="card-text"></p>
+    </div>
+  </div>
+<br>

@@ -8,13 +8,14 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a [routerLink]="['/livestock']" class="nav-link">Mon cheptel</a>
+
       </li>
       <li class="nav-item">
         <a (click)="changeStateCheptel()" [routerLink]="['/ruche']" class="nav-link">Mes ruches</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input aria-label="Search" class="form-control mr-sm-2" placeholder="{{idUser}}" type="search">
+      <input aria-label="Search" class="form-control mr-sm-2" placeholder="Hello {{user.firstname}}" type="search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="changeStateShow()">Se connecter
       </button>
     </form>

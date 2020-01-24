@@ -12,7 +12,6 @@ export class SignincomponentComponent implements OnInit {
   private user: User = new User('');
   private userCreateAccount: boolean = false;
   private userWantSignIn: boolean = false;
-  private connection: User = new User();
   private isUserConnect: boolean = false;
 
   @Output() sendId: EventEmitter<any> = new EventEmitter<any>();
@@ -29,11 +28,9 @@ export class SignincomponentComponent implements OnInit {
     console.log(userToJson);
     this.siginService.userConnection(userToJson).subscribe(
        response => {
-         this.connection.email = response.user.email;
-         this.connection.name = response.user.name;
-         this.connection.firstname = response.user.firstname;
-         this.connection.id = response.user.idUser;
-         this.connection.liveStocks = response.user.liveStocks;
+         this.siginService.email = response.user.email
+         this.siginService.firstName = response.user.firstname;
+         this.siginService.idUser = response.user.idUser;
        },
       err => console.error('Observer got an error: ' + err),
       () => this.toSendIdUser(),
@@ -41,8 +38,8 @@ export class SignincomponentComponent implements OnInit {
   }
 
   isUserIsValid() {
-    console.log(this.connection);
-    if(this.connection.email === this.user.email) {
+    console.log(this.siginService.email);
+    if(this.siginService.email === this.user.email) {
       this.isUserConnect = true;
       console.log('connecté');
       alert('utilisateur connecté');
@@ -70,8 +67,11 @@ export class SignincomponentComponent implements OnInit {
 
   public toSendIdUser(){
     this.isUserIsValid();
-    this.sendId.emit(this.connection.id);
-    console.log(this.connection.id);
+    let user: User = new User();
+    user.email = this.siginService.email;
+    user.id = this.siginService.idUser;
+    this.sendId.emit(user);
+    console.log(user);
   }
 
 }

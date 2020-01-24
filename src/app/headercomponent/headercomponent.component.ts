@@ -1,4 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from "../models/user";
+import {SigninService} from "../services/signin.service";
 
 @Component({
   selector: 'app-headercomponent',
@@ -9,10 +11,11 @@ export class HeadercomponentComponent implements OnInit {
 
   private isCheptel: boolean = false;
   private isRuche: boolean = false;
-  private idUser: any;
+  private user: User = new User();
   private show: boolean = false;
+  showLiveStock: boolean = false;
 
-  constructor() { }
+  constructor(private signInService: SigninService) { }
 
   ngOnInit() {
 
@@ -30,9 +33,15 @@ export class HeadercomponentComponent implements OnInit {
     this.isRuche = !this.isRuche;
   }
 
-  onGetIdUserFromSignIn(idUser){
-    console.log('je suis passé');
-    this.idUser = idUser;
+  onGetIdUserFromSignIn(user: any){
+    console.log(user);
+    this.user.email = user.email;
+    this.user.name = user.name;
+    this.user.firstname = user.firstname;
+    this.user.id = user.id;
+    this.user.liveStocks = user.liveStocks;
+    this.signInService.listlivestock = user.liveStocks;
+    console.log(user);
   }
 
 }

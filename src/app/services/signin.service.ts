@@ -9,6 +9,11 @@ export class SigninService {
    readonly urlApi = 'http://localhost:8082/user/search';
    readonly urlApiToCreateAccount = 'http://localhost:8082/user';
 
+   public email: string;
+   public idUser: number;
+   public listlivestock: any;
+  public firstName: string;
+
   constructor(private http: HttpClient) { }
 
   userConnection (user): Observable<any> {
@@ -35,11 +40,5 @@ export class SigninService {
     return this.http.post(this.urlApiToCreateAccount,user, header)
   }
 
-  getHives(){
 
-  }
-
-  getUser(){
-
-  }
 }

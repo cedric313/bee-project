@@ -10,7 +10,6 @@ import { SignincomponentComponent } from './signincomponent/signincomponent.comp
 import {RouterModule} from '@angular/router';
 import { ROUTES } from './app.routes';
 import {HttpClientModule} from '@angular/common/http';
-import { AccueilComponent } from './accueil/accueil.component';
 import { LivestockComponent } from './livestock/livestock.component';
 import { RucheComponent } from './ruche/ruche.component';
 
@@ -22,7 +21,6 @@ import { RucheComponent } from './ruche/ruche.component';
     FootercomponentComponent,
     BodycomponentComponent,
     SignincomponentComponent,
-    AccueilComponent,
     LivestockComponent,
     RucheComponent
   ],
